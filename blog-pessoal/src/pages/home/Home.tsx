@@ -1,28 +1,31 @@
-import React from "react";
-import './Home.css'
+import React from 'react';
+import {Typography, Grid, Button} from '@material-ui/core';
+import {Box} from '@mui/material';
+import './Home.css';
 
 function Home() {
     return (
-        <div>
-            <h1 className="fonte">Tadyêllo Bastos</h1>
-            <p>Solteiro(a)-01/05/1994<br />Rua Soldado Sebastião Machado 45, Jacarepaguá, Rio de Janeiro<br />+55 21 99554-3233<br />tadyello@hotmail.com</p>
-            <p>OBJETIVO:</p>
-            <p>Cargo de Analista de </p>
-            <p>FORMAÇÃO ACADÊMICA:</p>
-            <p>Graduação em Análise e Desenvolvimento de Sistemasddsasa.<a href="https://www.mackenzie.br/">Universidade Presbiteriana Mackenzie</a>, Rio de Janeiro,2022-2024</p>
-            <p>EXPERIÊNCIA PROFISSIONAL:</p>
-            <p>11/2014-10/2021-LEROY MERLIN BRASIL</p>
-            <ul>
-                <li> Cargo: Vendedor de Projetos</li>
-                <li> Principais Atividades: Venda e Atendimento ao Cliente</li>
-                <li>Programador</li>
-            </ul>
-            <p>IDIOMAS:</p>
-            <ul>
-                <li>Inglês básico.</li>
-            </ul>    
-            
-        </div>
+        <>
+            <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
+                <Grid alignItems="center" item xs={6}>
+                    <Box paddingX={20} >
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "white", fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" style={{ color: "white", fontWeight: "bold" }}>expresse aqui os seus pensamentos e opiniões!</Typography>
+                    </Box>
+                    <Box display="flex" justifyContent="center">
+                        <Box marginRight={1}>
+                        </Box>
+                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
+                    </Box>
+                </Grid>
+                <Grid item xs={6} >
+                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+                </Grid>
+                <Grid xs={12} style={{ backgroundColor: "white" }}>
+                </Grid>
+            </Grid>
+        </>
     );
 }
+
 export default Home;

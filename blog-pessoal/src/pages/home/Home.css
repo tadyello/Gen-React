@@ -1,6 +1,11 @@
-.fonte{
+.titulo{
     color: blue;
+    text-align: center;
 }
-p.fonte{
-    color: red;
+
+.img{
+    width: 500px;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
 }
