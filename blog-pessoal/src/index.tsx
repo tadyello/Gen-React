@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import Home from './pages/home/Home';
-import Navbar from './pages/components/estaticos/navbar/Navbar';
-import Footer from './pages/components/estaticos/footer/Footer';
 import App from './App';
+import Footer from './components/estaticos/footer/Footer';
+import Navbar from './components/estaticos/navbar/Navbar';
+import './index.css';
+import Home from './paginas/home/Home';
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <App />    
   </React.StrictMode>
 );
 
