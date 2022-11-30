@@ -5,6 +5,7 @@ import Home from './paginas/home/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Login from './paginas/login/Login';
 import Footer from './components/estaticos/footer/Footer';
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/home' element={<Home/>} />        
+        <Route path='/login' element={<Login />} />
+        <Route path='/home' element={<Home/>} />    
+        <Route path='/cadastrousuario' element={<CadastroUsuario/>} />    
       </Routes>
       <Footer />
     </Router>
