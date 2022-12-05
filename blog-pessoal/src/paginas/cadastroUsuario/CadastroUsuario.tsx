@@ -90,11 +90,13 @@ function CadastroUsuario() {
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
                         <TextField value={user.foto_url} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='foto_url' label='foto' variant='outlined' name='foto_url' margin='normal' fullWidth />
                         <Box marginTop={2} textAlign='center'>
+                            <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' color='secondary' className='btnCancelar'>
                                     Cancelar
                                 </Button>
+                            </Link>
                             <Button type='submit' variant='contained' color='primary'>
-                                    Cadastrar
+                                Cadastrar
                             </Button>
                         </Box>
                     </form>
