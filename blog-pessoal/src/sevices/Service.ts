@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://bloggeneration.herokuapp.com'
+    baseURL: 'https://tadyello.herokuapp.com'
 })
 
     export const cadastroUsuario = async(url: any,dados: any,setDado: any) => { 
@@ -37,3 +37,4 @@ export const api = axios.create({
     export const deleteId = async(url: any,header: any) => { 
         await api.delete(url,header)
     }
+
