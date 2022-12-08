@@ -3,16 +3,19 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 import './CadastroPost.css';
 import {useNavigate, useParams } from 'react-router-dom'
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../sevices/Service';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { useSelector } from 'react-redux';
 
 function CadastroPost() {
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
-
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
+      
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")
@@ -32,8 +35,8 @@ function CadastroPost() {
         titulo: '',
         midia_url:'',
         texto: '',
-        data: null,
-        tema: null
+        tema: null,
+        usuario: null
     })
 
     useEffect(() => { 
@@ -109,7 +112,6 @@ function CadastroPost() {
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.midia_url} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="midia_url" label="Link do Arquivo" name="midia_url" variant="outlined" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="Texto" variant="outlined" name="texto" margin="normal" fullWidth />
-                <TextField value={postagem.data} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="data"  />
 
 
                 <FormControl >
