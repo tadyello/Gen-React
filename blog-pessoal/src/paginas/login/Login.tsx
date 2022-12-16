@@ -5,8 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import useLocalStorage from 'react-use-localstorage';
 import UserLogin from '../../models/UserLogin';
-import { api } from '../../sevices/Service';
+import { api, login } from '../../sevices/Service';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { addToken } from '../../store/tokens/actions';
 
 function Login() {
 
@@ -34,6 +36,7 @@ function Login() {
 
     useEffect(() => {
         if (token != '') {
+            dispatch(addToken(token));
             navigate('/home')
         }
     }, [token])
@@ -41,12 +44,28 @@ function Login() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            const resposta = await api.post(`/auth/logar`, userLogin)
-            setToken(resposta.data.token)
-
-            alert('Usuário logado com sucesso!');
+            await login(`/auth/logar`, userLogin,setToken)
+            toast.success('Usuário logado com sucesso!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+                });
         } catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!');
+            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+                });
         }
     }
 
